@@ -1,0 +1,13 @@
+<!-- Interpolation -->
+<h1> <i> {{name}} </i> by {{autor}} </h1>
+
+<!-- Property binding -->
+<button [disabled]="isDisabled">Show books</button>
+<img [src]="image" alt="" width="500px"> <br>
+
+<!-- Event Binding -->
+<button (click)="onClick()">Touch me </button> <br>
+
+<!-- Two way binding -->
+<input type="text" [(ngModel)]="myname"><br>
+<div> {{myname}} </div><br>
