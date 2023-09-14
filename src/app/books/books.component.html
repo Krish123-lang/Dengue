@@ -1,13 +1,33 @@
 <!-- Interpolation -->
-<h1> <i> {{name}} </i> by {{autor}} </h1>
+<!-- <h1> <i> {{name}} </i> by {{autor}} </h1> -->
 
 <!-- Property binding -->
-<button [disabled]="isDisabled">Show books</button>
-<img [src]="image" alt="" width="500px"> <br>
+<!-- <button [disabled]="isDisabled">Show books</button> -->
+<!-- <img [src]="image" alt="" width="500px"> <br> -->
 
 <!-- Event Binding -->
-<button (click)="onClick()">Touch me </button> <br>
+<!-- <button (click)="onClick()">Touch me </button> <br> -->
 
 <!-- Two way binding -->
-<input type="text" [(ngModel)]="myname"><br>
-<div> {{myname}} </div><br>
+<!-- <input type="text" [(ngModel)]="myname"><br> -->
+<!-- <div> {{myname}} </div><br> -->
+
+<!-- === === === === === === === NgIf === === === === === === === ===  -->
+<!-- NgIf Directive -->
+
+<!--  if isShowing is true then make it false and vice-versa -->
+<button (click)="isShowing = !isShowing">
+    <ng-container *ngIf="!isShowing">Show Books</ng-container>
+    <ng-container *ngIf="isShowing">Hide Books</ng-container>
+</button>
+
+<ul *ngIf="isShowing">
+    <!-- For NGFor -->
+    <!-- === === === === === === === NgFor === === === === === === === ===  -->
+    <ng-container *ngFor="let book of books; let i = index">
+        <li style="list-style: none;">
+            <h1> {{i + 1}}. <i> {{book.name}} </i> by {{book.autor}} </h1>
+            <img [src]="book.image" alt="{{book.name}}" width="500px"> <br>
+        </li>
+    </ng-container>
+</ul>
